@@ -44,11 +44,18 @@
             return newProduct;
         }
 
-        public int GetName()
+        public int GetId()
         {
             Console.Write("Enter Product ID: ");
             int id = Convert.ToInt32(Console.ReadLine());
             return id;
+        }
+
+        public string GetName()
+        {
+            Console.Write("Enter Product name: ");
+            string name = Console.ReadLine();
+            return name;
         }
     }
 }

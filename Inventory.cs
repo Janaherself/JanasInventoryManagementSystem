@@ -21,9 +21,9 @@
             else
             {
                 Console.WriteLine("Products List:\n");
-                foreach (KeyValuePair<int, Product> kvp in _products)
+                foreach (var product in _products)
                 {
-                    PrintItem(kvp.Value);
+                    PrintItem(product.Value);
                 }
             }
         }

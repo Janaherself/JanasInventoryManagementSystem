@@ -6,6 +6,7 @@
         {
             Inventory inventory = new();
             DataManager dataManager = new();
+            SQLInventory sqlInventory = new();
 
             bool exit = true;
 
@@ -29,25 +30,25 @@
                 {
                     case "1":
                         var product = dataManager.ReadFromConsole();
-                        inventory.Add(product);
+                        SQLInventory.InsertProduct(product);
                         break;
                     case "2":
-                        inventory.View();
+                        SQLInventory.ViewProducts();
                         break;
                     case "3":
-                        int idToEdit = dataManager.GetName();
-                        inventory.Edit(idToEdit);
+                        int idToEdit = dataManager.GetId();
+                        SQLInventory.UpdateProduct(idToEdit);
                         break;
                     case "4":
-                        int idToDelete = dataManager.GetName();
-                        inventory.Delete(idToDelete);
+                        int idToDelete = dataManager.GetId();
+                        SQLInventory.DeleteProduct(idToDelete);
                         break;
                     case "5":
-                        int idToSearchFor = dataManager.GetName();
-                        inventory.Search(idToSearchFor);
+                        string itemToSearchFor = dataManager.GetName();
+                        SQLInventory.GetProduct(itemToSearchFor);
                         break;
                     case "6":
-                        inventory.ExitFromConsole();
+                        SQLInventory.ExitFromConsole();
                         exit = false;
                         break;
                     default: 
